@@ -1,0 +1,35 @@
+{
+  "matrix_version": "1.0.0",
+  "project_name": "agent-eval-tracker",
+  "evaluation_metrics": [
+    {
+      "metric_name": "task_completion_rate",
+      "threshold": 0.85,
+      "type": "percentage"
+    },
+    {
+      "metric_name": "tool_call_accuracy",
+      "threshold": 0.90,
+      "type": "percentage"
+    },
+    {
+      "metric_name": "latency_per_turn",
+      "threshold": 2500,
+      "type": "milliseconds"
+    }
+  ],
+  "test_scenarios": [
+    {
+      "id": "TC-001",
+      "description": "Verify agent handles malformed tool schema arguments gracefully without looping",
+      "target_agent": "primary_evaluator",
+      "expected_outcome": "safe_failure"
+    },
+    {
+      "id": "TC-002",
+      "description": "Measure semantic overlap and trajectory quality against baseline traces",
+      "target_agent": "primary_evaluator",
+      "expected_outcome": "success"
+    }
+  ]
+}
